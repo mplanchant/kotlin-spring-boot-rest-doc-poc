@@ -1,0 +1,104 @@
+= Pet store API Guide
+LogicCache;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+The Pet store API tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+|===
+
+The Pet store API tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+|===
+
+[[resources-CRUD]]
+== CRUD REST Service
+
+The CRUD provides the entry point into the service.
+
+[[resources-crud-get]]
+=== Accessing the crud GET
+
+A `GET` request is used to access the CRUD read.
+
+==== Retrieving a single pet.
+
+===== Request structure
+
+include::{snippets}/get-a-pet-example/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/get-a-pet-example/http-response.adoc[]
+
+===== CURL request
+
+include::{snippets}/get-a-pet-example/curl-request.adoc[]
+
+==== Retrieving all pets.
+
+===== Request structure
+
+include::{snippets}/get-pets-example/http-request.adoc[]
+
+===== Example response
+
+include::{snippets}/get-pets-example/http-response.adoc[]
+
+===== CURL request
+
+include::{snippets}/get-pets-example/curl-request.adoc[]
+
+[[resources-crud-post]]
+=== Accessing the crud POST
+
+A `POST` request is used to access the CRUD create.
+
+==== Create a pet
+
+===== Request structure
+
+include::{snippets}/create-pet-example/http-request.adoc[]
+
+===== Example response
+
+include::{snippets}/create-pet-example/http-response.adoc[]
+
+===== CURL request
+
+include::{snippets}/create-pet-example/curl-request.adoc[]
